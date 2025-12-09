@@ -3,33 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>root@5uhag:~#</title>
+    <title>Suhag | Full Stack Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
             --bg-color: #050505;
-            --sidebar-bg: #0a0a0a;
-            --text-main: #ffffff;
-            --text-muted: #888888;
-            --accent: #ffffff;
-            --border: #333333;
+            --sidebar-bg: #000000;
+            --text-primary: #ffffff;
+            --text-secondary: #999999;
+            --border-color: #222222;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-main);
+            color: var(--text-primary);
             display: flex;
             min-height: 100vh;
+            line-height: 1.6;
         }
 
-        /* --- Sidebar (Left) --- */
+        /* --- Sidebar --- */
         .sidebar {
-            width: 280px;
+            width: 260px;
             background-color: var(--sidebar-bg);
-            border-right: 1px solid var(--border);
-            padding: 40px;
+            border-right: 1px solid var(--border-color);
+            padding: 48px 32px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -37,161 +40,102 @@
             height: 100vh;
         }
 
-        .brand h2 { font-size: 1.5rem; letter-spacing: -0.5px; }
-        .brand p { color: var(--text-muted); font-size: 0.9rem; margin-top: 5px; }
+        .brand { font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+        .brand-logo { width: 20px; height: 20px; background: #fff; border-radius: 4px; }
 
-        .nav { display: flex; flex-direction: column; gap: 20px; margin-top: 60px; }
-        .nav a {
-            color: var(--text-muted);
+        .nav { display: flex; flex-direction: column; gap: 15px; margin-top: 4rem; }
+        .nav-link {
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.95rem;
             transition: color 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
         }
-        .nav a:hover { color: var(--text-main); }
+        .nav-link:hover { color: var(--text-primary); }
+        .nav-link.active { color: var(--text-primary); font-weight: 600; }
 
-        .sidebar-footer { color: var(--text-muted); font-size: 0.85rem; display: flex; flex-direction: column; gap: 10px; }
-        .sidebar-footer i { margin-right: 8px; }
+        .status {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        .status-dot { width: 6px; height: 6px; background-color: #22c55e; border-radius: 50%; }
 
-        /* --- Main Content (Right) --- */
-        .main-content {
-            margin-left: 280px; /* Width of sidebar */
-            padding: 100px 80px;
-            max-width: 900px;
-            width: 100%;
+        /* --- Main Content --- */
+        .main {
+            margin-left: 260px;
+            flex: 1;
+            padding: 120px 10%;
+            max-width: 1000px;
         }
 
-        .hero h1 {
-            font-size: 4rem;
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
             line-height: 1.1;
-            margin-bottom: 20px;
-            letter-spacing: -2px;
-        }
-        
-        /* The "Hacker" Cursor Effect */
-        .cursor {
-            display: inline-block;
-            width: 12px;
-            height: 4rem;
-            background-color: var(--text-main);
-            margin-left: 5px;
-            animation: blink 1s infinite;
-            vertical-align: text-bottom;
-        }
-
-        .subtitle {
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            font-weight: 400;
+            /* Subtle Gradient Text */
+            background: linear-gradient(to bottom right, #fff 40%, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .bio {
-            color: var(--text-muted);
-            line-height: 1.6;
-            font-size: 1.1rem;
-            max-width: 600px;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
             margin-bottom: 40px;
+            font-weight: 400;
+            max-width: 600px;
         }
 
-        .actions { display: flex; gap: 20px; margin-bottom: 50px; }
+        /* --- Buttons --- */
+        .btn-group { display: flex; gap: 15px; margin-bottom: 60px; }
         
         .btn {
-            padding: 12px 24px;
+            padding: 10px 24px;
             border-radius: 6px;
-            font-weight: 600;
+            font-size: 0.9rem;
+            font-weight: 500;
             text-decoration: none;
             transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-primary {
-            background-color: var(--text-main);
-            color: var(--bg-color);
-            border: 1px solid var(--text-main);
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #fff;
         }
-        .btn-primary:hover { opacity: 0.9; }
+        .btn-primary:hover { background-color: #e6e6e6; }
 
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--border);
+        .btn-outline {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
         }
-        .btn-secondary:hover { border-color: var(--text-main); }
-
-        .socials { display: flex; gap: 20px; }
-        .socials a { color: var(--text-muted); text-decoration: none; font-size: 1.5rem; transition: color 0.2s; }
-        .socials a:hover { color: var(--text-main); }
-
-        @keyframes blink { 50% { opacity: 0; } }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            body { flex-direction: column; }
-            .sidebar { 
-                position: relative; 
-                width: 100%; 
-                height: auto; 
-                padding: 20px; 
-                border-right: none; 
-                border-bottom: 1px solid var(--border);
-            }
-            .nav { flex-direction: row; flex-wrap: wrap; margin-top: 20px; }
-            .main-content { margin-left: 0; padding: 40px 20px; }
-            .hero h1 { font-size: 2.5rem; }
-            .cursor { height: 2.5rem; }
+        .btn-outline:hover {
+            border-color: #fff;
+            color: #fff;
         }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
 
-    <nav class="sidebar">
-        <div class="brand">
-            <h2>5uhag</h2>
-            <p>CS Student & Developer</p>
-        </div>
-        
-        <div class="nav">
-            <a href="#">Home</a>
-            <a href="https://github.com/5uhag?tab=repositories" target="_blank">Projects</a>
-            <a href="#">About</a>
-            <a href="mailto:contact@5uhag.me">Contact</a>
-        </div>
+        /* --- Projects Grid --- */
+        .section-header {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
 
-        <div class="sidebar-footer">
-            <div><i class="fas fa-map-marker-alt"></i> Bengaluru, India</div>
-            <div><i class="fas fa-envelope"></i> root@5uhag.me</div>
-        </div>
-    </nav>
-
-    <main class="main-content">
-        <div class="hero">
-            <h1>Suhag<span class="cursor"></span></h1>
-            <h2 class="subtitle">Computer Science Student | Cybersecurity | Web Dev</h2>
-            
-            <p class="bio">
-                Passionate computer science student from Bengaluru with expertise in 
-                <b>PHP, MySQL, and Ethical Hacking</b>. Currently pursuing BCA 
-                with a focus on building secure, scalable web applications.
-                <br><br>
-                <i>"The quieter you become, the more you can hear."</i>
-            </p>
-
-            <div class="actions">
-                <a href="mailto:contact@5uhag.me" class="btn btn-primary">Get In Touch</a>
-                <a href="https://github.com/5uhag" target="_blank" class="btn btn-secondary">View GitHub</a>
-            </div>
-
-            <div class="socials">
-                <a href="https://github.com/5uhag" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://twitter.com/_5uhag" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com/5uhag" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/suh1g" target="_blank"><i class="fab fa-telegram"></i></a>
-            </div>
-        </div>
-    </main>
-
-</body>
-</html>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
