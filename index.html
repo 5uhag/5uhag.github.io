@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suhag(5uhag) | Full Stack Developer</title>
+    <title>Suhag (5uhag) | Security Researcher & Open Source Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -14,6 +14,7 @@
             --text-primary: #ffffff;
             --text-secondary: #999999;
             --border-color: #222222;
+            --accent-green: #4ade80; /* Added for Namma Yatri link */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -79,7 +80,6 @@
             letter-spacing: -1px;
             margin-bottom: 24px;
             line-height: 1.1;
-            /* Subtle Gradient Text */
             background: linear-gradient(to bottom right, #fff 40%, #666);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -150,12 +150,14 @@
             text-decoration: none;
             transition: border-color 0.2s;
             display: block;
+            height: 100%; /* Keeps cards equal height */
         }
         .card:hover { border-color: #555; }
         
-        .card h3 { color: var(--text-primary); font-size: 1rem; margin-bottom: 8px; font-weight: 600; }
+        .card h3 { color: var(--text-primary); font-size: 1rem; margin-bottom: 8px; font-weight: 600; display: flex; align-items: center; gap: 8px;}
         .card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; }
-        
+        .highlight { color: var(--accent-green); font-weight: 500;}
+
         /* Mobile Optimization */
         @media (max-width: 768px) {
             body { flex-direction: column; }
@@ -186,7 +188,7 @@
             
             <nav class="nav">
                 <a href="#" class="nav-link active">Home</a>
-                <a href="https://github/5uhag" target="_blank" class="nav-link">Projects</a>
+                <a href="https://github.com/5uhag" target="_blank" class="nav-link">Projects</a>
                 <a href="mailto:root@5uhag.me" class="nav-link">Contact</a>
             </nav>
         </div>
@@ -217,12 +219,17 @@
         <div class="section-header">Selected Projects</div>
         
         <div class="grid">
-            <a href="https://github.com/5uhag" class="card">
-                <h3>🔐 Login System V2</h3>
-                <p>Secure authentication system built with PHP, MySQL, and AJAX.</p>
+            <a href="https://github.com/nammayatri/nammayatri/pull/13121" target="_blank" class="card">
+                <h3><i class="fas fa-map-marked-alt"></i> Namma Yatri</h3>
+                <p>Open source contributor (PR #13121). Implemented Android Intent Filters to fix <span class="highlight">WhatsApp location sharing</span>.</p>
             </a>
 
-            <a href="https://github.com/5uhag" class="card">
+            <a href="https://github.com/5uhag/gpa-calculator class="card">
+                <h3>🧮 GPA Calculator</h3>
+                <p>Simple tool to calculate semester GPA based on credit points. Built for BCA curriculum.</p>
+            </a>
+
+            <a href="https://github.com/5uhag/web-crawler" class="card">
                 <h3>🕷️ Web Crawler</h3>
                 <p>Python script for OSINT gathering and vulnerability scanning.</p>
             </a>
