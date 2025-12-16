@@ -43,9 +43,9 @@
             z-index: 100;
         }
 
-        .brand { font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
-        .brand-logo { width: 20px; height: 20px; background: #fff; border-radius: 4px; }
-
+        .brand { font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 12px; }
+        
+        /* Nav Styles */
         .nav { display: flex; flex-direction: column; gap: 15px; margin-top: 4rem; }
         .nav-link {
             color: var(--text-secondary);
@@ -94,12 +94,12 @@
             max-width: 600px;
         }
 
-        /* --- Unified Action Bar (Buttons + Socials) --- */
+        /* --- Unified Action Bar --- */
         .action-bar {
             display: flex;
             align-items: center;
             gap: 12px;
-            flex-wrap: wrap; /* Wraps on mobile */
+            flex-wrap: wrap;
             margin-bottom: 60px;
         }
         
@@ -113,55 +113,28 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            height: 44px; /* Fixed height for alignment */
+            height: 44px;
         }
 
-        .btn-primary {
-            background-color: #fff;
-            color: #000;
-            border: 1px solid #fff;
-        }
+        .btn-primary { background-color: #fff; color: #000; border: 1px solid #fff; }
         .btn-primary:hover { background-color: #e6e6e6; }
 
-        .btn-outline {
-            background: transparent;
-            color: var(--text-secondary);
-            border: 1px solid var(--border-color);
-        }
-        .btn-outline:hover {
-            border-color: #fff;
-            color: #fff;
-        }
+        .btn-outline { background: transparent; color: var(--text-secondary); border: 1px solid var(--border-color); }
+        .btn-outline:hover { border-color: #fff; color: #fff; }
 
-        /* Divider Line */
-        .divider {
-            width: 1px;
-            height: 24px;
-            background-color: var(--border-color);
-            margin: 0 4px;
-        }
+        .divider { width: 1px; height: 24px; background-color: var(--border-color); margin: 0 4px; }
 
-        /* Social Icons */
         .social-btn {
-            width: 44px; /* Matches button height */
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            background: var(--hover-bg);
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.2s;
-            border: 1px solid transparent;
-            font-size: 1.2rem;
+            width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 6px; background: var(--hover-bg);
+            color: var(--text-secondary); text-decoration: none;
+            transition: all 0.2s; border: 1px solid transparent; font-size: 1.2rem;
         }
 
         .social-btn:hover {
-            color: var(--text-primary);
-            border-color: var(--border-color);
-            background: rgba(255,255,255,0.1);
-            transform: translateY(-2px);
+            color: var(--text-primary); border-color: var(--border-color);
+            background: rgba(255,255,255,0.1); transform: translateY(-2px);
         }
         
         .social-btn svg { width: 22px; height: 22px; fill: currentColor; }
@@ -211,34 +184,20 @@
             gap: 10px;
         }
         
-        .card p { 
-            color: var(--text-secondary); 
-            font-size: 0.9rem; 
-            line-height: 1.5; 
-        }
-        
+        .card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; }
         .highlight { color: var(--accent-green); font-weight: 500;}
 
         /* Mobile Optimization */
         @media (max-width: 768px) {
             body { flex-direction: column; }
-            .sidebar { 
-                position: relative; 
-                width: 100%; 
-                height: auto; 
-                padding: 20px; 
-                border-right: none; 
-                border-bottom: 1px solid var(--border-color);
-            }
+            .sidebar { position: relative; width: 100%; height: auto; padding: 20px; border-right: none; border-bottom: 1px solid var(--border-color); }
             .nav { flex-direction: row; gap: 20px; margin-top: 20px; overflow-x: auto; }
             .main { margin-left: 0; padding: 40px 20px; }
             h1 { font-size: 2.2rem; }
-            
-            /* On mobile, stack them but keep social row together */
             .action-bar { gap: 10px; }
             .btn { width: 100%; justify-content: center; }
-            .divider { display: none; } /* Hide divider on mobile */
-            .social-btn { flex: 1; } /* Make icons stretch evenly */
+            .divider { display: none; }
+            .social-btn { flex: 1; }
         }
     </style>
 </head>
@@ -247,13 +206,13 @@
     <aside class="sidebar">
         <div>
             <div class="brand">
-                <div class="brand-logo"></div> 
+                <i class="fas fa-terminal" style="color: #4ade80; font-size: 1.1rem;"></i>
                 <span>5uhag</span>
             </div>
             
             <nav class="nav">
                 <a href="#" class="nav-link active">Home</a>
-                <a href="https://github.com/5uhag" target="_blank" class="nav-link">Projects</a>
+                <a href="projects.html" class="nav-link">Projects</a>
                 <a href="mailto:root@5uhag.me" class="nav-link">Contact</a>
             </nav>
         </div>
@@ -302,20 +261,29 @@
         </div>
 
         <div class="section-header">Selected Projects</div>
-        
+
         <div class="grid">
             <a href="https://github.com/nammayatri/nammayatri/pull/13121" target="_blank" class="card">
-                <h3><i class="fas fa-map-marked-alt"></i> Namma Yatri</h3>
+                <h3>
+                    <i class="fas fa-map-marked-alt" style="background: linear-gradient(135deg, #FFD700, #FF8C00); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i> 
+                    Namma Yatri
+                </h3>
                 <p>Open source contributor (PR #13121). Implemented Android Intent Filters to fix <span class="highlight">WhatsApp location sharing</span>.</p>
             </a>
 
-            <a href="https://github.com/5uhag/gpa-calculator" class="card">
-                <h3><i class="fas fa-calculator"></i> GPA Calculator</h3>
+            <a href="https://github.com/5uhag/gpa-calculator" target="_blank" class="card">
+                <h3>
+                    <i class="fas fa-calculator" style="background: linear-gradient(135deg, #00FFFF, #1E90FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i> 
+                    GPA Calculator
+                </h3>
                 <p>Simple tool to calculate semester GPA based on credit points. Built specifically for BCA curriculum.</p>
             </a>
 
             <a href="https://github.com/5uhag/web-crawler" class="card">
-                <h3><i class="fas fa-spider"></i> Web Crawler</h3>
+                <h3>
+                    <i class="fas fa-spider" style="background: linear-gradient(135deg, #D400FF, #FF0055); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i> 
+                    Web Crawler
+                </h3>
                 <p>Python script for OSINT gathering and vulnerability scanning.</p>
             </a>
         </div>
